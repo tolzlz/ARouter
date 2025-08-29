@@ -1,0 +1,44 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+
+    namespace  = "com.alibaba.android.arouter"   // Gradle 8 必须
+    compileSdk = 34                // 必须写数字
+
+    defaultConfig {
+        minSdk = 27
+        targetSdk = 35
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    buildTypes {
+        release {
+            debuggable  = false
+            minifyEnabled  = false
+        }
+
+//        lintOptions { abortOnError false }
+    }
+
+}
+
+dependencies {
+    annotationProcessor 'com.alibaba:arouter-compiler:1.5.2'
+    api 'com.alibaba:arouter-annotation:1.0.6'
+//    implementation "com.android.support:support-v4:${SUPPORT_LIB_VERSION}"
+    implementation "androidx.appcompat:appcompat:1.7.1"
+}
+
+apply from: rootProject.file('gradle/publish.gradle')

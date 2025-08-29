@@ -1,0 +1,12 @@
+apply plugin: 'groovy'
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+}
+//
+//dependencies {
+//    classpath 'com.android.tools.build:gradle:8.12.0'
+//}
+
+apply from: rootProject.file('gradle/publish.gradle')

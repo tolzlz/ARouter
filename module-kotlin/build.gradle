@@ -1,0 +1,69 @@
+//apply plugin: 'com.android.library'
+//apply plugin: 'kotlin-android'
+//apply plugin: 'kotlin-kapt'
+//apply plugin: 'kotlin-android-extensions'
+ plugins {
+     id "com.android.library"
+     id "org.jetbrains.kotlin.android" version '2.2.0'
+     id "org.jetbrains.kotlin.kapt" version '2.2.0'
+ }
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
+
+dependencies {
+     implementation project(':arouter-api')
+     implementation project(':arouter-annotation')
+     kapt project(':arouter-compiler')
+ //    implementation "com.android.support:appcompat-v7:${SUPPORT_LIB_VERSION}"
+ //    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+     implementation "androidx.appcompat:appcompat:1.7.1"
+     implementation "androidx.constraintlayout:constraintlayout:2.1.4"
+ //    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+     // ✅ Kotlin 标准库
+     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.2.0"
+}
+android {
+    //compileSdkVersion Integer.parseInt(COMPILE_SDK_VERSION)
+    //buildToolsVersion BUILDTOOLS_VERSION
+    namespace = "com.alibaba.android.arouter.demo.kotlin"   // Gradle 8 必须
+    compileSdk  = 34                // 必须写数字
+
+    defaultConfig {
+        minSdk = 27
+//        targetSdk = 35
+    }
+
+    compileOptions {
+        sourceCompatibility =  JavaVersion.VERSION_17
+        targetCompatibility  = JavaVersion.VERSION_17
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            testProguardFiles 'test-proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            testProguardFiles 'test-proguard-rules.pro'
+        }
+
+//        lintOptions { abortOnError false }
+    }
+}
+
+kotlin {
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
