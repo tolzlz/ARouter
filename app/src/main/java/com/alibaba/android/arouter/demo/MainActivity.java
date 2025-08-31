@@ -12,12 +12,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.alibaba.android.arouter.demo.module1.testactivity.TestDynamicActivity;
+//import com.alibaba.android.arouter.demo.module1.testactivity.TestDynamicActivity;
 import com.alibaba.android.arouter.demo.service.model.TestObj;
 import com.alibaba.android.arouter.demo.service.model.TestParcelable;
 import com.alibaba.android.arouter.demo.service.model.TestSerializable;
 import com.alibaba.android.arouter.demo.service.HelloService;
-import com.alibaba.android.arouter.demo.module1.testservice.SingleService;
+//import com.alibaba.android.arouter.demo.module1.testservice.SingleService;
 import com.alibaba.android.arouter.facade.Postcard;
 import com.alibaba.android.arouter.facade.callback.NavCallback;
 import com.alibaba.android.arouter.facade.enums.RouteType;
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 @Override public void onInterrupt(Postcard postcard) { Log.d("ARouter", "被拦截了"); }
             });
         } else if (id == R.id.callSingle) {
-            ARouter.getInstance().navigation(SingleService.class).sayHello("Mike");
+//            ARouter.getInstance().navigation(SingleService.class).sayHello("Mike");
         } else if (id == R.id.failNav2) {
             ARouter.getInstance().build("/xxx/xxx").navigation();
         } else if (id == R.id.failNav3) {
@@ -156,9 +156,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     .navigation();
             Toast.makeText(this, "找到Fragment:" + fragment.toString(), Toast.LENGTH_SHORT).show();
         } else if (id == R.id.addGroup) {
-            ARouter.getInstance().addRouteGroup(atlas -> atlas.put("/dynamic/activity",
-                    RouteMeta.build(RouteType.ACTIVITY, TestDynamicActivity.class,
-                            "/dynamic/activity", "dynamic", 0, 0)));
+//            ARouter.getInstance().addRouteGroup(atlas -> atlas.put("/dynamic/activity",
+//                    RouteMeta.build(RouteType.ACTIVITY, TestDynamicActivity.class,
+//                            "/dynamic/activity", "dynamic", 0, 0)));
         } else if (id == R.id.dynamicNavigation) {
             ARouter.getInstance().build("/dynamic/activity")
                     .withString("name", "老王")

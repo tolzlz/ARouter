@@ -21,54 +21,54 @@ import java.util.Map;
 /**
  * A simple {@link Fragment} subclass.
  */
-@Route(path = "/test/fragment")
-public class BlankFragment extends Fragment {
-
-    @Autowired
-    String name;
-
-    @Autowired(required = true)
-    TestObj obj;
-
-    @Autowired
-    int age = 10;
-
-    @Autowired
-    int height = 175;
-
-    @Autowired(name = "boy", required = true)
-    boolean girl;
-
-    @Autowired
-    char ch = 'A';
-
-    @Autowired
-    float fl = 12.00f;
-
-    @Autowired
-    double dou = 12.01d;
-
-    @Autowired
-    TestSerializable ser;
-
-    @Autowired
-    TestParcelable pac;
-
-    @Autowired
-    List<TestObj> objList;
-
-    @Autowired
-    Map<String, List<TestObj>> map;
-
-    public BlankFragment() {
-        // Required empty public constructor
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        TextView textView = new TextView(getActivity());
-        return textView;
-    }
-
-}
+//@Route(path = "/test/fragment")
+//public class BlankFragment extends Fragment {
+//
+//    @Autowired
+//    String name;
+//
+//    @Autowired(required = true)
+//    TestObj obj;
+//
+//    @Autowired
+//    int age = 10;
+//
+//    @Autowired
+//    int height = 175;
+//
+//    @Autowired(name = "boy", required = true)
+//    boolean girl;
+//
+//    @Autowired
+//    char ch = 'A';
+//
+//    @Autowired
+//    float fl = 12.00f;
+//
+//    @Autowired
+//    double dou = 12.01d;
+//
+//    @Autowired
+//    TestSerializable ser;
+//
+//    @Autowired
+//    TestParcelable pac;
+//
+//    @Autowired
+//    List<TestObj> objList;
+//
+//    @Autowired
+//    Map<String, List<TestObj>> map;
+//
+//    public BlankFragment() {
+//        // Required empty public constructor
+//    }
+//
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+//                             Bundle savedInstanceState) {
+//        TextView textView = new TextView(getActivity());
+//        return textView;
+//    }
+//
+//}

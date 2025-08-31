@@ -353,7 +353,7 @@ public class RouteProcessor extends BaseProcessor {
             ).build().writeTo(mFiler);
 
             logger.info(">>> Generated provider map, name is " + providerMapFileName + " <<<");
-
+            logger.info(">>> Generated modelName: " + moduleName + " <<<");
             // Write root meta into disk.
             String rootFileName = NAME_OF_ROOT + SEPARATOR + moduleName;
             JavaFile.builder(PACKAGE_OF_GENERATE_FILE,
